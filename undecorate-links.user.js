@@ -8,10 +8,11 @@
 const as = document.getElementsByTagName('a');
 for (var i = 0; i < as.length; ++i) (function(a){
   if (!a.href.match(/^javascript:/)) return;
+	var match;
  
-  if (a.href.match(/javascript:openNewWindow\(\);?/)) {
+  if (match = a.href.match(/javascript:openNewWindow\(\);?/)) {
     a.href = 'http://www.rciaffiliates.com';
-  } else {
-    a.href = a.href.replace(/^javascript:newPopWindow\((['"])((?:(?!\1)[^\\]|\\.)*)\1.*?\);?$/, '$2');
-  }
+  } else if (match = a.href.match(/^javascript:(?:newPopWindow|getLink)\((['"])((?:(?!\1)[^\\]|\\.)*)\1.*?\);?$/)) {
+    a.href = match[2];
+  } 
 })(as[i]);

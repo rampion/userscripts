@@ -2,7 +2,7 @@
 // @name           TwitterReplyToPreview
 // @namespace      http://rampion.myopenid.com
 // @description    Add title text to "in reply to" links displaying the tweet replied to
-// @include        http://twitter.com/
+// @include        http://twitter.com/*
 // ==/UserScript==
 
 const set_titles = function(){
